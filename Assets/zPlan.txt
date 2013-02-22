@@ -1,0 +1,37 @@
+Originally, the Core script was meant to act as a central superboss. It would create and establish object pools, while also segregating those objects into different update queues.
+This was going to be a test run for the architecture that I was going to try for Rainforest Defense.
+Well, I probably haven't put enough thought into the Core architecture. There are some gaps that would require a non-trivial process to fill. Since I'm grasping for time, I'm going to leave the Core stuff behind.
+Instead, we'll make something quick and dirty in order to get tetris tetrizing by the end of the day.
+
+This is a highlevel plan for the back-ground architecture.
+
+Requirements:
+Menu
+Splash Screen
+Tetris-like gameplay
+	Various requirements
+	
+While I can probably get away with using a scene for each of the above items, I have a plan for wedging in a Unity-friendly 'Gamescene' system.
+The idea is that we'll use scenes as game states. Technically, yes, we're going to use that exact same Scene-per plan, but the trick is that we'll be adding scenes additively.
+We'll have a "layered" game without an actual gamestate queue.
+
+Opacity will not be a feature. But, we'll implement a QAD pausing scheme to allow us to halt the game while in a quick menu.
+We'll also use persistent objects as a central control core, sort of like what the Core architecture is planning to do.
+
+The tetris component is going to be written on the fly. It's a sin, I know.
+
+Oh, I just realized that prefixing Plan.txt with a z in order to push it to the bottom of the order makes it read like 'zee plan.'
+Hahaha, oh wow.
+
+
+
+TODO:
+Lose
+Background stages (Pull pretty things out of previous projects, maybe?)
+Splash screen
+Menu screen.
+Bootstrapping.
+
+Additional thoughts:
+Lets scrap the whole gamescene swapping business. Lets load up our menu and splash screen all at once.
+Then, when the player moves from one to the other, it'll be a camera-on-rails sort of movement.
